@@ -67,14 +67,11 @@ export function loadCredentials() {
 
   return credentials;
 }
-export function checkIfExist(username: string, password: string) {
-  // Check The Mapped Function
-  const credentials = loadCredentials();
-  credentials.forEach((value, key) => {
-    if (username === key && password == value) {
-      return true;
-    } else return false;
-  });
-}
+export function checkIfExist(username: string, password: string): boolean {
+  // Convert Map entries to an array and use some
+  const credentials = loadCredentials(); // Assuming this returns a Map<string, string>
 
-console.log(checkIfExist('Stefanos', 'Stef'));
+  return Array.from(credentials).some(
+    ([key, value]) => username === key && password === value
+  );
+}
