@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "description": "Learn TypeScript",
+    "status": "incomplete"
+  },
+  {
+    "id": 2,
+    "description": "Build a CLI Task Manager",
+    "status": "incomplete"
+  },
+  {
+    "id": 3,
+    "description": "Write unit tests for the application",
+    "status": "completed"
+  },
+  {
+    "id": 4,
+    "description": "Refactor old JavaScript code",
+    "status": "incomplete"
+  },
+  {
+    "id": 5,
+    "description": "Update project documentation",
+    "status": "completed"
+  }
+]
