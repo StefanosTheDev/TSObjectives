@@ -1,4 +1,4 @@
-import fs from 'fs';
+import * as fs from 'fs';
 import { v4 as uuidv4 } from 'uuid'; // Optional: Use uuid for unique IDs
 
 // Task Manager
@@ -53,3 +53,28 @@ export function addTask(task: Omit<Task, 'id'>): Task {
   // Return the added task
   return newTask;
 }
+
+/*
+Check A Key Value Dictionary Set. 
+Read To See if 
+*/
+
+export function loadCredentials() {
+  const credentials = new Map<string, string>();
+  // Load users
+  credentials.set('Stef', 'Tennis1');
+  credentials.set('Bob', 'Check123');
+
+  return credentials;
+}
+export function checkIfExist(username: string, password: string) {
+  // Check The Mapped Function
+  const credentials = loadCredentials();
+  credentials.forEach((value, key) => {
+    if (username === key && password == value) {
+      return true;
+    } else return false;
+  });
+}
+
+console.log(checkIfExist('Stefanos', 'Stef'));
