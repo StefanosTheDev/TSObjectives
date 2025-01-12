@@ -42,7 +42,16 @@ function authenticate(attempts: number = 0): void {
 
 // Example of the next step function
 function nextStep(): void {
-  console.log('Proceeding to the next step...');
+  // Reprompt the user for questions
+  let choice: number;
+  switch (choice) {
+    case 1:
+      return;
+    case 2:
+      return;
+    case 3:
+      return;
+  }
   // Add your logic here for the next step
 }
 
