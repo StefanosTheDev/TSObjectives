@@ -75,8 +75,3 @@ export function checkIfExist(username: string, password: string): boolean {
     ([key, value]) => username === key && password === value
   );
 }
-
-
-
-function
-
