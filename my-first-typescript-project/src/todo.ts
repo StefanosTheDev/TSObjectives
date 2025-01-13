@@ -1,13 +1,15 @@
 interface Task {
+  id?: number; // make ID Optional
   title: string;
   description?: string;
-  status: 'pending' | 'completed';
+  status?: 'pending' | 'completed';
 }
 
 class TaskClass implements Task {
+  id?: number; // make ID Optional When creating.
   title: string;
   description?: string;
-  status: 'pending' | 'completed';
+  status?: 'pending' | 'completed';
 
   constructor(
     title: string,
@@ -23,24 +25,27 @@ class TaskClass implements Task {
 const taskList: Task[] = [];
 
 // Add task function with destructuring
-function addTask({ title, description, status }: Task) {
-  console.log(`Task Added: Title = "${title}", Status = "${status}"`);
-  taskList.push({ title, description, status });
+function addTask({ title, description, status = 'pending' }: Omit<Task, 'id'>) {
+  const id = taskList.length + 1;
+  const newTask: Task = { id, title, description, status }; // Assign The ID here.
+  taskList.push(newTask);
+  return newTask;
 }
 
-// Create and add tasks
-const task1 = new TaskClass('Learn TypeScript', 'Study the documentation');
-addTask(task1);
+// Get the ID destructured.
+function deleteTask(num: number) {
+  if (num) {
+    console.log('Id does not exist');
+  }
+  const searchID = taskList.find((item) => item.id === num);
+  console.log(`${searchID} is the ID `);
+  return searchID;
+}
 
-const task2 = new TaskClass('Complete project', 'Work on backend', 'completed');
-addTask(task2);
+const fakeTask: Task = {
+  title: 'Stefanos',
+  description: '40',
+};
 
-console.log('Current Task List:', taskList);
-// Output:
-// Task Added: Title = "Learn TypeScript", Status = "pending"
-// Task Added: Title = "Complete project", Status = "completed"
-// Current Task List:
-// [
-//   { title: 'Learn TypeScript', description: 'Study the documentation', status: 'pending' },
-//   { title: 'Complete project', description: 'Work on backend', status: 'completed' }
-// ]
+console.log(addTask(fakeTask));
+console.log(deleteTask(1));
