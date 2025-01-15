@@ -22,6 +22,43 @@ console.log(filterEven(numbers));
 
 // Problem 3: Sum All Numbers in An Array
 
+function sumNum(nums: number[]) {
+  // how redu
+  return nums.reduce((total, element) => total + element, 5);
+}
+
+console.log(sumNum(numbers));
+
+interface testUser {
+  name: string;
+  age: number;
+}
+
+// Leverage Reduce to find the occurrence of the letter H in the object. provided.
+
+const user1: testUser = { name: 'stefanos', age: 5 };
+const user2: testUser = { name: 'George', age: 10 };
+const user3: testUser = { name: 'Stefanos', age: 5 };
+
+
+
+// STudy this and why it works. 
+function countOccurence(user: testUser): Record<string, number> {
+  const counts: Record<string, number> = {};
+
+  /// Iterate over each charachter in the user name
+  for (const char of user.name) {
+    // if we have seen this charachter before, increment it
+    if (counts[char]) {
+      counts[char]++;
+    } else {
+      counts[char] = 1;
+    }
+  }
+  return counts;
+}
+console.log(countOccurence(user1));
+
 // MEDIUM LEVEL PROBLEMS
 // Problem 4: Merge and Sort Two Arrays
 // Problem 5: Safe Parsing Of String  Numbers
