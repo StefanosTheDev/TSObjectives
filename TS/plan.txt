@@ -1,0 +1,3 @@
+Jan 14th -> Basics & Basics Types. Review Next Gen JS & TS Topics in Notes
+Jan 15th -> Classes & Interfaces
+Jan 16th -> Advanced Types, Generics, Decorators 
