@@ -70,3 +70,51 @@ function sortNumbers(numbers: number[]): number[] {
 console.log(sortNumbers([5, 2, 8, 1])); // Output: [1, 2, 5, 8]
 console.log(hasNegative([1, 2, -3])); // Output: true
 console.log(hasNegative([1, 2, 3])); // Output: false
+
+/**
+ * Section 2: Objects
+ */
+
+//Write a function that logs each key-value pair in an object.
+function logObject(obj: { [key: string]: number }): void {
+  for (const x in obj) {
+    console.log(`${x}: ${obj[x]}`);
+  }
+}
+
+logObject({ a: 1, b: 2, c: 3 }); // Output: a: 1, b: 2, c: 3
+
+//Write a function that logs all the keys of an object.
+function logKeys(obj: { [key: string]: number }): void {
+  console.log(Object.keys(obj));
+}
+
+logKeys({ d: 1, e: 2, f: 3 }); // Output: a, b, c
+
+function getValues(obj: { [key: string]: number }): number[] {
+  return Object.values(obj);
+}
+
+console.log(getValues({ a: 1, b: 2, c: 3 })); // Output: [1, 2, 3]
+
+//Write a function that returns an array of key-value pairs from an object.
+function getEntries(obj: { [key: string]: number }): [string, number][] {
+  return Object.entries(obj);
+}
+
+console.log(getEntries({ ag: 1, v: 2, l: 3 })); // Output: [["a", 1], ["b", 2], ["c", 3]]
+
+//Write a function that inverts the keys and values of an object.
+function invertObject(obj: { [key: string]: number }): {
+  [key: number]: string;
+} {
+  // Okay so to invert the obj. We need it iterate through this
+  let obj1: { [key: number]: string } = {};
+  for (const val in obj) {
+    obj1[obj[val]] = val;
+  }
+
+  return obj1;
+}
+
+console.log(console.log('Inverted Object', invertObject({ x: 1, y: 2, z: 3 }))); // Output: { 1: "a", 2: "b", 3: "c" }

@@ -40,9 +40,7 @@ const user1: testUser = { name: 'stefanos', age: 5 };
 const user2: testUser = { name: 'George', age: 10 };
 const user3: testUser = { name: 'Stefanos', age: 5 };
 
-
-
-// STudy this and why it works. 
+// STudy this and why it works.
 function countOccurence(user: testUser): Record<string, number> {
   const counts: Record<string, number> = {};
 

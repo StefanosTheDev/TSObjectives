@@ -27,7 +27,7 @@ function problem1(str: string): boolean {
  *
  *
  */
-// If you want to accept an object where the value property specifically contains an
+// If you want to accexwpt an object where the value property specifically contains an
 // array of numbers, you can explicity type it like this.
 function problem2(obj: { numbers: number[] }) {
   // Make sure that there is a new array with only unique values...
@@ -81,3 +81,34 @@ class CRUD {
   Update() {}
   Read() {}
 }
+
+function problem7(str: string) {
+  // Find Longest Charachter In The String.
+  // Okay So I Am going to break this string down into charachters into an array.
+  // Then I need to get thelenghts of each position and there index. make sense.
+  const longest_word = str.split(' ').sort((a, b) => b.length - a.length)[0];
+  return longest_word;
+}
+console.log(problem7('asd Is the greatessadasdadsdt person in the world, c'));
+
+//10. Word Frequency Counter
+function problem10(obj: { [key: string]: string }) {
+  let _word_freq_counter: { [key: string]: number } = {};
+
+  // Loop through the object's keys to count frequencies
+  for (const key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      const words = obj[key].split(/\s+/); // Split the string into words
+      for (const word of words) {
+        if (_word_freq_counter.hasOwnProperty(word)) {
+          _word_freq_counter[word] += 1; // Increment count if word exists
+        } else {
+          _word_freq_counter[word] = 1; // Initialize count if word doesn't exist
+        }
+      }
+    }
+  }
+
+  return _word_freq_counter;
+}
+console.log(problem10({ text: 'Hello World Stefanos 10 10 ' }));
